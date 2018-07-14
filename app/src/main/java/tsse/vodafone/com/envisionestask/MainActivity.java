@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements OnlineCarsView ,S
                                     }
                                 }
         );
+        setRecurringAlarm(this);
 
     }
 
@@ -89,7 +90,6 @@ public class MainActivity extends AppCompatActivity implements OnlineCarsView ,S
     }
 
     private void setRecurringAlarm(Context context) {
-
         Calendar updateTime = Calendar.getInstance();
         updateTime.setTimeZone(TimeZone.getDefault());
         updateTime.set(Calendar.HOUR_OF_DAY, 12);

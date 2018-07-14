@@ -10,19 +10,36 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import tsse.vodafone.com.envisionestask.MainActivity;
+import tsse.vodafone.com.envisionestask.models.BusinessError;
+import tsse.vodafone.com.envisionestask.models.CarsModel;
+import tsse.vodafone.com.envisionestask.presenters.OnlineCarsPresenter;
+import tsse.vodafone.com.envisionestask.views.OnlineCarsView;
 
-public class UpdateCarsService extends IntentService {
+public class UpdateCarsService extends IntentService implements OnlineCarsView {
 
     private static final String TAG = MainActivity.class.getSimpleName();
+    private OnlineCarsPresenter onlineCarsPresenter;
     public UpdateCarsService() {
         super("Cars Services");
+        onlineCarsPresenter = new OnlineCarsPresenter();
+        onlineCarsPresenter.attachView(this);
     }
 
     @Override
     protected void onHandleIntent(Intent intent) {
         Log.d(TAG, "About to execute MyTask");
         new MyTask().execute();
-        this.sendNotification(this);
+        onlineCarsPresenter.loadData();
+    }
+
+    @Override
+    public void onFinishedLoadingSuccessfully(CarsModel carsModel) {
+
+    }
+
+    @Override
+    public void onFinishedLoadingError(BusinessError businessError) {
+
     }
 
     private class MyTask extends AsyncTask<String, Void, Boolean> {
