@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cars_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   >
+
+   <ImageView
+       android:layout_width="100dp"
+       android:layout_height="100dp"
+       android:src="@drawable/ic_launcher_background"
+       android:id="@+id/car_photo"/>
+
+    <TextView
+        android:id="@+id/primary_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/car_photo"
+        android:text="Test1" />
+
+    <TextView
+        android:id="@+id/secondary_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/primary_text"
+        android:layout_toEndOf="@+id/car_photo"
+        android:text="Test1" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/car_photo">
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Test1" />
+
+        <TextView
+            android:id="@+id/val"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Test1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Test1" />
+
+    </LinearLayout>
+
+</RelativeLayout>

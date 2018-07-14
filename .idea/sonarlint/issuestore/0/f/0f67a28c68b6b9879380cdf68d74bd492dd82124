@@ -1,0 +1,4 @@
+
+nsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(¼şl8ã—Ç”Ç,
+¢squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ú˜Í¤üÿÿÿÿ8ã—Ç”Ç,
+tsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(Ô”ì‹øÿÿÿÿ8ã—Ç”Ç,
