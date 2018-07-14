@@ -1,21 +1,15 @@
 package tsse.vodafone.com.envisionestask.presenters;
 
-import android.graphics.Movie;
 import android.util.Log;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import tsse.vodafone.com.envisionestask.models.BusinessError;
-import tsse.vodafone.com.envisionestask.models.Car;
 import tsse.vodafone.com.envisionestask.models.CarsModel;
 import tsse.vodafone.com.envisionestask.rest.RestClient;
 import tsse.vodafone.com.envisionestask.rest.RestInterface;
 import tsse.vodafone.com.envisionestask.views.OnlineCarsView;
-
-import static android.support.constraint.Constraints.TAG;
 
 public class OnlineCarsPresenter {
 

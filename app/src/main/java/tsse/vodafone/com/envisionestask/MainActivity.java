@@ -39,14 +39,12 @@ public class MainActivity extends AppCompatActivity implements OnlineCarsView ,S
         onlineCarsPresenter.attachView(this);
         final Handler handler = new Handler();
         handler.postDelayed( new Runnable() {
-
             @Override
             public void run() {
                 loadOnlineCars();
-                handler.postDelayed( this, 60 * 1000 );
+                handler.postDelayed( this, 5 * 1000 );
             }
-        }, 60 * 1000 );
-
+        }, 5 * 1000 );
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         swipeRefreshLayout.setOnRefreshListener(this);
         swipeRefreshLayout.post(new Runnable() {
@@ -67,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements OnlineCarsView ,S
 
     @Override
     public void onFinishedLoadingSuccessfully(CarsModel carsModel) {
-        swipeRefreshLayout.setRefreshing(true);
+        swipeRefreshLayout.setRefreshing(false);
         recyclerView.setAdapter(new CarsAdapter(carsModel.getCars(), R.layout.list_item_car, getApplicationContext()));
 
     }
@@ -79,13 +77,12 @@ public class MainActivity extends AppCompatActivity implements OnlineCarsView ,S
 
     @Override
     public void onRefresh() {
-
+        loadOnlineCars();
     }
 
     private void loadOnlineCars() {
         swipeRefreshLayout.setRefreshing(true);
         onlineCarsPresenter.loadData();
-        swipeRefreshLayout.setRefreshing(false);
     }
 
     public class UpdateCarsReceivers extends BroadcastReceiver {
