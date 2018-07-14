@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -36,7 +37,16 @@ public class MainActivity extends AppCompatActivity implements OnlineCarsView ,S
         findViews();
         onlineCarsPresenter = new OnlineCarsPresenter();
         onlineCarsPresenter.attachView(this);
-        loadOnlineCars();
+        final Handler handler = new Handler();
+        handler.postDelayed( new Runnable() {
+
+            @Override
+            public void run() {
+                loadOnlineCars();
+                handler.postDelayed( this, 60 * 1000 );
+            }
+        }, 60 * 1000 );
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         swipeRefreshLayout.setOnRefreshListener(this);
         swipeRefreshLayout.post(new Runnable() {
@@ -47,8 +57,7 @@ public class MainActivity extends AppCompatActivity implements OnlineCarsView ,S
                                     }
                                 }
         );
-        setRecurringAlarm(this);
-
+        //setRecurringAlarm(this);
     }
 
     private void findViews() {
